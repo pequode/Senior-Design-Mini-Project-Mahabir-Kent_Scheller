@@ -1,0 +1,23 @@
+Notes from discord meeting
+
+app
+    - bar code scanner 
+    - image rec ? 
+    - internerface 
+    -  - user recipe
+    -  - serving amount 
+    - backend? 
+    - database readout 
+web services 
+    - login 
+    - database -api? 
+    - backend ?
+fda api 
+    - get api key 
+    - learn how to make api calls
+    - parse json 
+backend calc 
+    - calories per serving * serverings entered  
+    - 
+
+brains github: bmahabirbu
