@@ -16,7 +16,7 @@ Linux
   - install reactnative
   - - npx react-native init AwesomeProject
 
-windows
+windows follow this tutorial ( https://www.youtube.com/watch?v=oZFCt69Bccc)
   - install Android studio (expo needed)
   - install nodejs 14.6
-  -  
+  - 
