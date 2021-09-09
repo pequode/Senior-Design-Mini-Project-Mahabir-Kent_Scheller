@@ -19,3 +19,4 @@
 * * We then had to clarify our design decisons for the UI of the app on weather to use an application to help write the ui or do it ourselves
 * * our decision was to write the code ourselves but look into the application builderx if we get stuck
 * * George then outlined the UI using gimp a photoedting software 
+* * our next meeting will be on 9/11 but we should finish our goals by the 10th
