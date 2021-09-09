@@ -14,9 +14,13 @@ Linux
   - - export PATH=$PATH:$ANDROID_HOME/platform-tools
   -- source $HOME/.bash_profile
   - install reactnative
+  - install npx
+  - -npm install -g npx -  https://www.npmjs.com/package/npx
   - - npx react-native init AwesomeProject
+  - npx react-native start
 
 windows
   - install Android studio (expo needed)
   - install nodejs 14.6
+  --ADD to install guide here
   -  
