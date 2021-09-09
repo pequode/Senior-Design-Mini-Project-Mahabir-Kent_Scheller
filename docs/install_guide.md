@@ -22,9 +22,5 @@ Linux
 windows follow this tutorial ( https://www.youtube.com/watch?v=oZFCt69Bccc)
   - install Android studio (expo needed)
   - install nodejs 14.6
-<<<<<<< HEAD
   --ADD to install guide here
   -  
-=======
-  - 
->>>>>>> e47fff3ff158e5b285b8a43cd81cd35c29b82ba1
