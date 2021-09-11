@@ -1,14 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
-import React from 'react';
-import type {Node} from 'react';
-import {
+ import React, { Component } from 'react';
+ import { RNCamera } from 'react-native-camera';
+ import BarcodeMask from 'react-native-barcode-mask';
+ import type {Node} from 'react';
+ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -28,32 +23,89 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
+ const defaultBarcodeTypes = [];
+
+ const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>
+      hello World
       </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-const styles = StyleSheet.create({
+      <Button
+        title="Press me"
+        onPress={() => Alert.alert('Simple Button pressed')}
+      />
+    </SafeAreaView>
+       );
+}
+
+//class for camera and barcode implementation
+ class Camera extends Component {
+
+  constructor(props) {
+    super(props);
+    this.barcode = [],
+    this.state = {
+      showCamera: true,
+      barcodeType: '',
+      barcodeValue: '',
+      isBarcodeRead: false // default to false
+    };
+  }
+
+  onBarCodeRead(scanResult) {
+    this.setState({isBarcodeRead: true, barcodeType: scanResult.type, barcodeValue: scanResult.data});
+    this.barcode = scanResult.data;
+    console.log(scanResult.data);
+    console.warn(scanResult.data);
+  };
+
+  componentDidUpdate() {
+    const {isBarcodeRead, barcodeType, barcodeValue} = this.state;
+    if (isBarcodeRead) {
+       Alert.alert(barcodeType, barcodeValue, [
+         { 
+             text: 'OK', 
+             onPress: () => {
+                 // Reset everything 
+                 this.setState({showCamera: false, isBarcodeRead: false, barcodeType: '', barcodeValue: ''})
+             }
+         }
+       ]);
+    }
+
+ }
+
+
+    render() {
+      const {isBarcodeRead} = this.state;
+      console.log(this.state);
+      return (
+        <RNCamera
+          ref={ref => {
+            this.camera = ref;
+          }}
+          onBarCodeRead={this.onBarCodeRead.bind(this)}
+          style={{
+            flex: 1,
+            width: '100%',
+          }}
+          barcodeTypes={isBarcodeRead ? [] : defaultBarcodeTypes}
+          >
+          <BarcodeMask />
+        </RNCamera>
+    );
+  }
+
+ }
+
+ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -74,74 +126,5 @@ const styles = StyleSheet.create({
   },
 });
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>
-      hello World
-      </Text>
-      <Button
-        title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
-      />
-    </SafeAreaView>
-       );
-}
-
-
-//     <SafeAreaView style={backgroundStyle}>
-//       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-//       <ScrollView
-//         contentInsetAdjustmentBehavior="automatic"
-//         style={backgroundStyle}>
-//         <Header />
-//         <View
-//           style={{
-//             backgroundColor: isDarkMode ? Colors.black : Colors.white,
-//           }}>
-//           <Section title="Hseaelloss World">
-//             Edit <Text style={styles.highlight}>App.js</Text> to change this
-//             screen and then come back to see your edits.
-//           </Section>
-//           <Section title="See Your Changes">
-//             <ReloadInstructions />
-//           </Section>
-//           <Section title="Debug">
-//             <DebugInstructions />
-//           </Section>
-//           <Section title="Learn More">
-//             Read the docs to discover what to do next:
-//           </Section>
-//           <LearnMoreLinks />
-//         </View>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
-
-export default App;
+ 
+ export default Camera;
