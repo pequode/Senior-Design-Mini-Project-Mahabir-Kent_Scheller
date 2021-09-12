@@ -25,26 +25,6 @@ import {
 
  const defaultBarcodeTypes = [];
 
- const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>
-      hello World
-      </Text>
-      <Button
-        title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
-      />
-    </SafeAreaView>
-       );
-}
-
 //class for camera and barcode implementation
  class Camera extends Component {
 
@@ -52,7 +32,7 @@ import {
     super(props);
     this.barcode = [],
     this.state = {
-      showCamera: true,
+      showCamera: false,
       barcodeType: '',
       barcodeValue: '',
       isBarcodeRead: false // default to false
@@ -82,9 +62,14 @@ import {
 
  }
 
+  onButtonPress = () => {
+    this.setState({showCamera: true, isBarcodeRead: false, barcodeType: '', 
+    barcodeValue: ''})
+  }
 
     render() {
-      const {isBarcodeRead} = this.state;
+      const {showCamera, isBarcodeRead} = this.state;
+      if (showCamera) {
       console.log(this.state);
       return (
         <RNCamera
@@ -96,11 +81,25 @@ import {
             flex: 1,
             width: '100%',
           }}
-          barcodeTypes={isBarcodeRead ? [] : defaultBarcodeTypes}
+          //barcodeTypes={isBarcodeRead ? [] : defaultBarcodeTypes}
           >
           <BarcodeMask />
         </RNCamera>
     );
+        }
+      else {
+        return (
+          <SafeAreaView style={styles.container}>
+            <Text style={styles.title}>
+            Test layout
+            </Text>
+            <Button
+              title="Scan barcode"
+              onPress={this.onButtonPress}
+            />
+          </SafeAreaView>
+             );
+      }
   }
 
  }
