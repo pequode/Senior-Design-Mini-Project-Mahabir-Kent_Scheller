@@ -20,3 +20,14 @@
 * * our decision was to write the code ourselves but look into the application builderx if we get stuck
 * * George then outlined the UI using gimp a photoedting software 
 * * our next meeting will be on 9/11 but we should finish our goals by the 10th
+* 09/11/21 -- 20:00-20:30
+* * reviewed the last sprit goals 
+* * * Brain compled his sprint goals by creating successful barcode scanner
+* * * discussed a bug with scanner multiple scans even after aquisition of barcode
+* * * George did not get api calls integrated into app but did complete research into the structure of the api get request
+* * * Geoge worked on assets for the app 
+* * both decided to use `class` structure for app rather than the `const app => ()` method
+* * talked about leaving api keys out of pushes until github secrets is working properly
+* * scheduled next meeting for 09/13 at 22:00 
+* * * Brian to work on UI 
+* * * George working on the merge  
