@@ -31,3 +31,13 @@
 * * scheduled next meeting for 09/13 at 22:00 
 * * * Brian to work on UI 
 * * * George working on the merge  
+9/13/21 -- 22:15-23:40
+* * Discussed our accomplishments 
+* * Brian worked on UI design for the last sprint 
+* * George worked on integration of fda api calls into camera-barcode app
+* * Problems with integration, we did not know how to switch screens without using states which makes our logic for the program bug out
+* * Our program will have certain methods run in tandem with the app which causes errors
+* * This setback has prevented us from moving on to the recipe storage part of the app and developing the firebase api
+* * We decided to forgo trying to finish the full impelemtation of the app and move forward to testing firebase api
+* * Our goals have changed, for friday we will have a semi working app that can interface with firebase
+* * George also needs to figure out api secrets to safely push code to git
