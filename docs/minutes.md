@@ -41,3 +41,5 @@
 * * We decided to forgo trying to finish the full impelemtation of the app and move forward to testing firebase api
 * * Our goals have changed, for friday we will have a semi working app that can interface with firebase
 * * George also needs to figure out api secrets to safely push code to git
+* * George ran into some technical issues where he cannot emulate a phone on his desktop
+* * This issue sets us back in terms of testing our app
