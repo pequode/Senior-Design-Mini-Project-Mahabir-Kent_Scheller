@@ -31,7 +31,7 @@
 * * scheduled next meeting for 09/13 at 22:00 
 * * * Brian to work on UI 
 * * * George working on the merge  
-9/13/21 -- 22:15-23:40
+* 09/13/21 -- 22:15-23:40
 * * Discussed our accomplishments 
 * * Brian worked on UI design for the last sprint 
 * * George worked on integration of fda api calls into camera-barcode app
@@ -43,3 +43,16 @@
 * * George also needs to figure out api secrets to safely push code to git
 * * George ran into some technical issues where he cannot emulate a phone on his desktop
 * * This issue sets us back in terms of testing our app
+*09/15/21 -- 22:10 - 23:00 
+* * moved trello cards around
+* * * George figured out a work around to github secrets using .gitignore
+* * * Brain successfully created a navigation scheme
+* * * Brain also fixed bugs that dealt with multiple bar code scans 
+* * * George almost got google authentication working 
+* * * George Created a python script to run on pushes with github actions 
+* * Assigned new roles 
+* *  * assigned brain to fix navigation bug
+* * * george to finish authentication 
+* * * George to look into serial numbers not scanning 
+* *  talked about priories for last sprint 
+* * outlined goals and highlighted with priority list 
