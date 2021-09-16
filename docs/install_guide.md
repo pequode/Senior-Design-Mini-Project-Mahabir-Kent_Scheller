@@ -11,3 +11,7 @@ Dependanceys
 
 - npm install react-native-screens react-native-safe-area-context
 - -npm install @react-navigation/native @react-navigation/native-stack
+- npm install
+- npm install @react-native-firebase/app
+- npm install @react-native-firebase/auth
+- npm install @react-native-community/google-signin
