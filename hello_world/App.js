@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+// import  useState  from 'react';
 import { Camera } from './screens';
 // import { SignIn } from './screens/SignIn.js';
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,46 +19,25 @@ import {
   View,
   Alert,
 } from 'react-native';
-import type {Node} from 'react';
+
 const Stack = createNativeStackNavigator();
 GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8lu.apps.googleusercontent.com',});
-const [authenticated, setAutheticated] = useState(false);
-
-auth().onAuthStateChanged((user) => {
-  if(user) {
-    setAutheticated(true);
-  }
-  if (authenticated) {
-    return <Authenticated/>;
-  }
-  
-  return <Authentication onGoogleButtonPress={onGoogleButtonPress} />;
-})
 
 
-const MyStack = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Test Layout' }}
-        />
-        <Stack.Screen name="Camera" component={Camera} />
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignOut" component={SignIn} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+
+
+
+
 async function onGoogleButtonPress() {
   const { idToken } = await GoogleSignin.signIn();
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
   return auth().signInWithCredential(googleCredential);
 }
-const SignIn =({ navigation }) => {
+const authenticated = () =>{
   
+};
+
+const SignIn =({ navigation }) => {
   return (
     <View>
       <Text>sign in screen</Text>
@@ -65,15 +45,33 @@ const SignIn =({ navigation }) => {
     </View>
   );
 };
+
 const SignOut =() => {
   const user = auth().currentUser;
+  const [authenticated, setAutheticated] = React.useState(false);
+  auth().onAuthStateChanged((user) => {
+    if(user) {
+      setAutheticated(true);
+      return (<Authenticated/>);
+    }
+    else {
+      setAuthenticated(false);
+    }
+
+    // if (!authenticated) {
+    //   return (navigation.navigate('SignIn'));
+    // }
+    
+    return <Authentication onGoogleButtonPress={onGoogleButtonPress} />;
+  })
   return (
-    <View style={styles.screen}>
-      <Text style={styles.title}>You're Logged In</Text>
+    <View >
+      
+      <Text >You're Logged In</Text>
       <Image source={{ uri: user?.photoURL }} style={styles.image} />
-      <Text style={styles.text}>{user?.displayName}</Text>
-      <Text style={styles.text}>{user?.email}</Text>
-      <View style={{ marginTop: 30 }}>
+      <Text >{user?.displayName}</Text>
+      <Text >{user?.email}</Text>
+      <View >
         <Button title="Signout" onPress={() => auth().signOut()} />
       </View>
     </View>)
@@ -93,5 +91,20 @@ const HomeScreen = ({ navigation }) => {
     </View>
   );
 };
-
+const MyStack = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Test Layout' }}
+        />
+        <Stack.Screen name="Camera" component={Camera} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignOut" component={SignOut} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 export default MyStack;
