@@ -87,23 +87,12 @@ const HomeScreen = ({ navigation }) => {
               Scan Barcode
             </Text>
         </Pressable>
-        <Pressable style={styles.button}
-          
-          onPress={() => navigation.navigate('addData', {
-            param1: "86",
-            param2: 'empty',
-          })    
-          }
-      >
-            <Text style={styles.normText}>
-              add data
-            </Text>
-        </Pressable>
+        
         <Pressable style={styles.button}
           onPress={() => navigation.navigate('fetchData')}
         >
             <Text style={styles.normText}>
-            Fetch Data
+            Get Total Cals 
             </Text>
         </Pressable>
       </ImageBackground>

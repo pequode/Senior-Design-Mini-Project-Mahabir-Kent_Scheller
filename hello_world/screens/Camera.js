@@ -31,14 +31,14 @@ var api_key = api_key_json.api_key;
 var api_3 = "&query="
 var bar = "689544083016"
 
-
+var defaultServerSize =1;
 const Camera = ( ) => {
   const [isBarcodeRead, setIsBarcodeRead] = useState(false);
   const [barcodeType, setBarcodeType] = useState('');
   const [barcodeValue, setBarcodeValue] = useState('');
   const [calories, setcalories] = useState(-1);
   const [otherData, setData] = useState([]);
-  const [servings, setServings] = useState(null);
+  const [servings, setServings] = useState(defaultServerSize);
   let cameraRef = useRef(null)
   const navigation = useNavigation();
 
@@ -49,7 +49,7 @@ const Camera = ( ) => {
       const json = await response.json();
       const apiData = json
 
-      if (apiData.totalHits ==0){
+      if (apiData.totalHits == null){
         console.log("no results");
       }
       else{

@@ -13,7 +13,12 @@ const styles = StyleSheet.create({
     title: {
       textAlign: 'center',
       marginVertical: 8,
-      color: 'red',
+      color: 'white',
+    },
+    big_Title:{
+      textAlign: 'center',
+      marginVertical: 8,
+      color: 'white',
     },
     normText:{
       textAlign: 'center',

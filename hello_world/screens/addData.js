@@ -36,6 +36,7 @@ const addData =({ route, navigation }) => {
             servings: serv,
           });
         Alert.alert('Item saved successfully');
+        navigation.navigate('Home')
 
     };
     return (
