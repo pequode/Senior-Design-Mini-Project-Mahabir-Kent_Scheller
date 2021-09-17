@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { useState, useRef, useEffect } from 'react';
-import type {Node} from 'react';
 import { GoogleSigninButton } from '@react-native-community/google-signin';
  import {
     View,

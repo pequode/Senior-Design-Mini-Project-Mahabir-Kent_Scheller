@@ -27,24 +27,40 @@ import database from '@react-native-firebase/database';
 
 const fetchData =({ navigation }) => {
     const [itemsArray, setItemsArray] = React.useState([]);
+    const [testName, setname] = React.useState("john doe");
     React.useEffect(() => {
         database().ref('/items').on('value', snapshot => {
         let data = snapshot.val();
         const items = Object.values(data);
-        setItemsArray(items);
+        setItemsArray(JSON.stringify(items));
         console.log(items)
+        console.log(typeof items)
         });
         console.log(itemsArray)
-    }, []);
+    }, [itemsArray,testName]);
+    function try_to_format(params) {
+        try {
+            var stuff = itemsArray
+            return stuff.toString()
 
+        } catch (error) {
+            return "there was an error"
+        }
+        return "oops?"
+    }
+    // const onstuffChanged = () => {
+    //     console.log("after chanage")
+    //     console.log(itemsArray)
+    // };
     return (
     
     <View>
-      {/* {itemsArray != [] ? (
-        <Text>{itemsArray[0]}</Text>
+       {/* {itemsArray != [] ? (
+        <Text>{itemsArray[0].name}</Text>
          ) : (
         <Text>No items</Text>
        )} */}
+       <Text>{try_to_format("kat")}</Text>
     </View>
     );
     

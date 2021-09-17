@@ -40,7 +40,7 @@ const Camera = ( ) => {
 
   async function callAPI(val) {
     try {
-      const response = await fetch(api_1+api_key+api_3+bar);
+      const response = await fetch(api_1+api_key+api_3+val);
       const json = await response.json();
       const apiData = json
 
