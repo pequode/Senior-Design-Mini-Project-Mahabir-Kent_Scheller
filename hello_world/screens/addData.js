@@ -8,6 +8,8 @@ import { GoogleSigninButton } from '@react-native-community/google-signin';
     StyleSheet,
     TextInput,
     Alert,
+    ImageBackground,
+  Pressable,
 
 } from 'react-native';
 import  styles  from './styles';
@@ -25,26 +27,28 @@ import database from '@react-native-firebase/database';
 
 const addData =({ route, navigation }) => {
     const [name, onChangeText] = React.useState('');
-    const { param1, param2 } = route.params;
-
+    const { data, cals, serv } = route.params;
+    const [dataAdded, onSuccessfulSub] = React.useState(false);
     const  handleSubmit = () => {
         
-        database().ref('/items').push({
-            name: name
+        database().ref('/fodoData').push({
+            cal: cals,
+            servings: serv,
           });
-        Alert.alert('Item saved successfully'+ param1 );
+        Alert.alert('Item saved successfully');
+
     };
     return (
       <View >
-        <Text >Add Item</Text>
-        <TextInput  onChangeText={text => onChangeText(text)} />
-        <TouchableHighlight
-          
-          underlayColor="white"
+         <ImageBackground source={require( '../backgrounds/background2.png')} style={{width: '100%', height: '100%',resizeMode: 'cover'}}>
+        <Text style={styles.normText}> Add Item: [cals:{cals.toString()}][servings:{serv.toString()}]</Text>
+
+        <Pressable style={styles.button}
           onPress={handleSubmit}
         >
-          <Text >Add</Text>
-        </TouchableHighlight>
+          <Text style={styles.normText} >submit?</Text>
+        </Pressable>
+      </ImageBackground>
       </View>
     );
     

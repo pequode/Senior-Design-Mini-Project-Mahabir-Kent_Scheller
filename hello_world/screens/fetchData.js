@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { useState, useRef, useEffect } from 'react';
-import type {Node} from 'react';
+
 import { GoogleSigninButton } from '@react-native-community/google-signin';
  import {
     View,
@@ -9,6 +9,9 @@ import { GoogleSigninButton } from '@react-native-community/google-signin';
     StyleSheet,
     TextInput,
     Alert,
+    ImageBackground,
+    Pressable,
+    FlatList,
 
 } from 'react-native';
 import  styles  from './styles';
@@ -30,39 +33,44 @@ import database from '@react-native-firebase/database';
 const fetchData =({ navigation }) => {
     const [itemsArray, setItemsArray] = React.useState([]);
     const [testName, setname] = React.useState("john doe");
+    
     React.useEffect(() => {
-        database().ref('/items').on('value', snapshot => {
-        let data = snapshot.val();
-        const items = Object.values(data);
-        setItemsArray(JSON.stringify(items));
-        console.log(items)
-        console.log(typeof items)
-        });
-        console.log(itemsArray)
-    }, [itemsArray,testName]);
+        try {
+            database().ref('/fodoData').on('value', snapshot => {
+                let data = snapshot.val();
+                const items = Object.values(data);
+                setItemsArray(items);
+                console.log(items)
+                });
+                
+        } catch (error) {
+            console.log(error)
+        }
+    }, [itemsArray,testName]);       
+
     function try_to_format(params) {
         try {
             var stuff = itemsArray
-            return stuff.toString()
+            console.log("length of stuff");
+            console.log(stuff.length);
+            var totalCals = 0 
+            for (let i = 0; i < stuff.length; i++) {
+                 totalCals += stuff[i].cal ;
+            } 
+            return totalCals;
 
         } catch (error) {
             return "there was an error"
         }
-        return "oops?"
     }
-    // const onstuffChanged = () => {
-    //     console.log("after chanage")
-    //     console.log(itemsArray)
-    // };
+  
     return (
     
     <View>
-       {/* {itemsArray != [] ? (
-        <Text>{itemsArray[0].name}</Text>
-         ) : (
-        <Text>No items</Text>
-       )} */}
-       <Text>{try_to_format("kat")}</Text>
+       <ImageBackground source={require( '../backgrounds/background3.png')} style={{width: '100%', height: '100%',resizeMode: 'cover'}}>
+       <Text style={styles.normText} >{try_to_format("kat")}</Text>
+       
+       </ImageBackground>
     </View>
     );
     

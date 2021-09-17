@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { useState, useRef, useEffect } from 'react';
-import type {Node} from 'react';
+
 import { GoogleSigninButton } from '@react-native-community/google-signin';
  import {
   SafeAreaView,
@@ -12,6 +12,8 @@ import { GoogleSigninButton } from '@react-native-community/google-signin';
   useColorScheme,
   View,
   Alert,
+  ImageBackground,
+  Pressable,
 } from 'react-native';
 
 import  styles  from './styles';
@@ -59,7 +61,9 @@ const SignIn =({ navigation }) => {
           const userInfo = await GoogleSignin.signIn();
           console.log("fcuk32")
           setAutheticated({ userInfo });
-          console.log("dones")
+          console.log("dones"+ userInfo)
+          navigation.navigate('Home')
+
         } catch (error) {
             console.log("an error occured")
           if (error.code === statusCodes.SIGN_IN_CANCELLED) {
@@ -78,9 +82,13 @@ const SignIn =({ navigation }) => {
         }
       };
     return (
-      <View>
-        <Text>sign in screen</Text>
+      <View style={styles.container}>
+         <ImageBackground source={require( '../backgrounds/background4.png')} style={{width: '100%', height: '100%',resizeMode: 'cover'}}>
+        <ImageBackground source={require( '../backgrounds/Logo.png')} style={{width: '100%', height: '100%',resizeMode: 'cover'}}>
+        <Text style={styles.title} >sign in screen</Text>
         <GoogleSigninButton onPress={signIn}/>
+        </ImageBackground>
+        </ImageBackground >
       </View>
     );
   };

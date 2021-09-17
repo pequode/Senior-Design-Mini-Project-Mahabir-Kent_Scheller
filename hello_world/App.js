@@ -80,31 +80,32 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View>
       <ImageBackground source={require( './backgrounds/background1.png')} style={{width: '100%', height: '100%',resizeMode: 'cover'}}>
-      <Button
-        title="Scan barcode"
-        onPress={() => navigation.navigate('Camera')}
-      />
-      <Button
-        title="Sign In"
-        onPress={() => {navigation.navigate('SignIn')}}
-      />
-       <Pressable style={styles.button}
-        
-        onPress={() => navigation.navigate('addData', {
-          param1: "86",
-          param2: 'empty',
-        })    
-        
-        }
+        <Pressable style={styles.button}
+          onPress={() => navigation.navigate('Camera')}
+        >
+            <Text style={styles.normText}>
+              Scan Barcode
+            </Text>
+        </Pressable>
+        <Pressable style={styles.button}
+          
+          onPress={() => navigation.navigate('addData', {
+            param1: "86",
+            param2: 'empty',
+          })    
+          }
       >
-        <Text>
-          add data
-        </Text>
-      </Pressable>
-      <Button
-        title="fetch data"
-        onPress={() => navigation.navigate('fetchData')}
-      />
+            <Text style={styles.normText}>
+              add data
+            </Text>
+        </Pressable>
+        <Pressable style={styles.button}
+          onPress={() => navigation.navigate('fetchData')}
+        >
+            <Text style={styles.normText}>
+            Fetch Data
+            </Text>
+        </Pressable>
       </ImageBackground>
     </View>
     
@@ -114,19 +115,20 @@ const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Sign In" component={SignIn} style={styles.titlescreen} />
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: 'Test Layout' }}
         />
-        <Stack.Screen name="Camera" component={Camera} />
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignOut" component={SignOut} />
+        <Stack.Screen name="Camera" component={Camera} style={styles.titlescreen}/>
+        <Stack.Screen name="SignOut" component={SignOut} style={styles.titlescreen}/>
         <Stack.Screen name="addData" component={addData} 
            initialParams={{ param1: "88",
            param2: 'anything yo',}}
+           style={styles.titlescreen}
         />
-        <Stack.Screen name="fetchData" component={fetchData} />
+        <Stack.Screen name="fetchData" component={fetchData} style={styles.titlescreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

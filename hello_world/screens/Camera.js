@@ -3,7 +3,6 @@
  import { useState, useRef, useEffect} from 'react';
  import { RNCamera } from 'react-native-camera';
  import BarcodeMask from 'react-native-barcode-mask';
- import type {Node} from 'react';
  import {
   SafeAreaView,
   ScrollView,
@@ -14,6 +13,9 @@
   useColorScheme,
   View,
   Alert,
+  ImageBackground,
+  Pressable,
+  TextInput ,
 } from 'react-native';
 import  styles  from './styles';
 
@@ -35,6 +37,8 @@ const Camera = ( ) => {
   const [barcodeType, setBarcodeType] = useState('');
   const [barcodeValue, setBarcodeValue] = useState('');
   const [calories, setcalories] = useState(-1);
+  const [otherData, setData] = useState([]);
+  const [servings, setServings] = useState(null);
   let cameraRef = useRef(null)
   const navigation = useNavigation();
 
@@ -54,7 +58,8 @@ const Camera = ( ) => {
         console.log(kcal);
         serving_size = 1
         //get user input in the future
-        setcalories(serving_size*kcal)
+        setcalories(serving_size*kcal);
+        setData(apiData);
         console.log(calories);
 
       }
@@ -94,13 +99,29 @@ const Camera = ( ) => {
   }
   function how_many_kcal(){
     if(calories != -1){
-      return calories;
+      return servings*calories;
     }
     else {
       return 0;
     }
   }
+  function add_to_data_Base(){
+    if(calories != -1){
+      navigation.navigate('addData', {
+        data: otherData,
+        cals: calories,
+        serv: servings,
+      })
+      setcalories(-1);
+      return 1; 
+    }
+    else {
+      return -1;
+    }
+  };
+
   return (
+  
       <RNCamera 
         ref={cameraRef}
         onBarCodeRead={onBarcodeRead} 
@@ -110,8 +131,20 @@ const Camera = ( ) => {
           }}
         barcodeTypes={isBarcodeRead ? [] : defaultBarcodeTypes}>
           <BarcodeMask />
-          <Button title="Signout" onPress={callAPI} />
-          <Text style={styles.title}>Calories: {how_many_kcal()}</Text>
+         
+          
+          <Button title="test successful scan" onPress={callAPI} />
+          {/* delete above line and use isBarcodeRead for bellow statement */}
+          {calories ? <Button title="add to totalCals" onPress={add_to_data_Base} /> :<Text></Text> } 
+          <Text style={styles.title}>Total Calories: {how_many_kcal()}</Text>
+          <Text style={styles.normText}>Servings: {servings}</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={setServings}
+            value={servings}
+            placeholder="How Many Servings?"
+            keyboardType="numeric"
+        />
       </RNCamera>
   )
 }
