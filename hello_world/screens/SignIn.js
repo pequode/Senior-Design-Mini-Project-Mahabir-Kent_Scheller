@@ -79,8 +79,14 @@ const SignIn =({ navigation }) => {
       };
     return (
       <View>
-        <Text>sign in screen</Text>
-        <GoogleSigninButton onPress={signIn}/>
+        <Text>Please sign in before scanning</Text>
+        <GoogleSigninButton 
+        onPress={signIn}
+        />
+        <Button
+        title="Log in to app"
+        onPress={() => navigation.navigate('Homescreen')}
+      />
       </View>
     );
   };

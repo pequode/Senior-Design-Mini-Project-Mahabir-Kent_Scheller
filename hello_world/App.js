@@ -31,9 +31,6 @@ GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8
 
 
 
-
-
-
 // async function onGoogleButtonPress() {
 //   const { idToken } = await GoogleSignin.signIn();
 //   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
@@ -84,10 +81,6 @@ const HomeScreen = ({ navigation }) => {
         title="Scan barcode"
         onPress={() => navigation.navigate('Camera')}
       />
-      <Button
-        title="Sign In"
-        onPress={() => navigation.navigate('SignIn')}
-      />
        <Pressable style={styles.button}
         
         onPress={() => navigation.navigate('addData')}
@@ -109,13 +102,13 @@ const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: 'Test Layout' }}
         />
         <Stack.Screen name="Camera" component={Camera} />
-        <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignOut" component={SignOut} />
         <Stack.Screen name="addData" component={addData} />
         <Stack.Screen name="fetchData" component={fetchData} />
