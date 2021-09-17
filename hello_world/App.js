@@ -1,7 +1,8 @@
 
 import * as React from 'react';
 // import  useState  from 'react';
-import { Camera } from './screens';
+import  Camera  from './screens/Camera';
+import  SignIn  from './screens/SignIn';
 // import { SignIn } from './screens/SignIn.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -28,35 +29,20 @@ GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8
 
 
 
-async function onGoogleButtonPress() {
-  const { idToken } = await GoogleSignin.signIn();
-  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-  return auth().signInWithCredential(googleCredential);
-}
-const authenticated = () =>{
+// async function onGoogleButtonPress() {
+//   const { idToken } = await GoogleSignin.signIn();
+//   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+//   return auth().signInWithCredential(googleCredential);
+// }
+// const authenticated = () =>{
   
-};
+// };
 
-const SignIn =({ navigation }) => {
-  return (
-    <View>
-      <Text>sign in screen</Text>
-      <GoogleSigninButton onPress={ onGoogleButtonPress }/>
-    </View>
-  );
-};
+
 
 const SignOut =() => {
-  const user = auth().currentUser;
-  const [authenticated, setAutheticated] = React.useState(false);
-  auth().onAuthStateChanged((user) => {
-    if(user) {
-      setAutheticated(true);
-      return (<Authenticated/>);
-    }
-    else {
-      setAuthenticated(false);
-    }
+  
+ 
 
     // if (!authenticated) {
     //   return (navigation.navigate('SignIn'));
