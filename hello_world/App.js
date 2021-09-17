@@ -1,11 +1,12 @@
 
 import * as React from 'react';
-// import  useState  from 'react';
+
 import  Camera  from './screens/Camera';
 import  SignIn  from './screens/SignIn';
 import  addData  from './screens/addData';
 import  fetchData  from './screens/fetchData';
-// import { SignIn } from './screens/SignIn.js';
+import  styles  from './screens/styles';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import auth from '@react-native-firebase/auth';
@@ -21,6 +22,8 @@ import {
   useColorScheme,
   View,
   Alert,
+  ImageBackground,
+  Pressable,
 } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -76,6 +79,7 @@ const SignOut =() => {
 const HomeScreen = ({ navigation }) => {
   return (
     <View>
+      <ImageBackground source={require( './backgrounds/background1.png')} style={{width: '100%', height: '100%',resizeMode: 'cover'}}>
       <Button
         title="Scan barcode"
         onPress={() => navigation.navigate('Camera')}
@@ -84,14 +88,19 @@ const HomeScreen = ({ navigation }) => {
         title="Sign In"
         onPress={() => navigation.navigate('SignIn')}
       />
-      <Button
-        title="add data"
+       <Pressable style={styles.button}
+        
         onPress={() => navigation.navigate('addData')}
-      />
+      >
+        <Text>
+          add data
+        </Text>
+      </Pressable>
       <Button
         title="fetch data"
         onPress={() => navigation.navigate('fetchData')}
       />
+      </ImageBackground>
     </View>
     
   );
