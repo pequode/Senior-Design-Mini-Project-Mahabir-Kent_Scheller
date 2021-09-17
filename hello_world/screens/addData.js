@@ -23,16 +23,16 @@ import database from '@react-native-firebase/database';
 
 
 
-const addData =({ navigation }) => {
+const addData =({ route, navigation }) => {
     const [name, onChangeText] = React.useState('');
-    
+    const { param1, param2 } = route.params;
 
     const  handleSubmit = () => {
         
         database().ref('/items').push({
             name: name
           });
-        Alert.alert('Item saved successfully');
+        Alert.alert('Item saved successfully'+ param1 );
     };
     return (
       <View >

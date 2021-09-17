@@ -1,6 +1,6 @@
 
  import React, { Component } from 'react';
- import { useState, useRef, useEffect } from 'react';
+ import { useState, useRef, useEffect} from 'react';
  import { RNCamera } from 'react-native-camera';
  import BarcodeMask from 'react-native-barcode-mask';
  import type {Node} from 'react';
@@ -34,14 +34,14 @@ const Camera = ( ) => {
   const [isBarcodeRead, setIsBarcodeRead] = useState(false);
   const [barcodeType, setBarcodeType] = useState('');
   const [barcodeValue, setBarcodeValue] = useState('');
-  const [calories, setcalories] = useState(0);
+  const [calories, setcalories] = useState(-1);
   let cameraRef = useRef(null)
   const navigation = useNavigation();
 
-
+  
   async function callAPI(val) {
     try {
-      const response = await fetch(api_1+api_key+api_3+val);
+      const response = await fetch(api_1+api_key+api_3+bar);
       const json = await response.json();
       const apiData = json
 
@@ -92,7 +92,14 @@ const Camera = ( ) => {
         setBarcodeValue(event.data);
      }
   }
-
+  function how_many_kcal(){
+    if(calories != -1){
+      return calories;
+    }
+    else {
+      return 0;
+    }
+  }
   return (
       <RNCamera 
         ref={cameraRef}
@@ -103,6 +110,8 @@ const Camera = ( ) => {
           }}
         barcodeTypes={isBarcodeRead ? [] : defaultBarcodeTypes}>
           <BarcodeMask />
+          <Button title="Signout" onPress={callAPI} />
+          <Text style={styles.title}>Calories: {how_many_kcal()}</Text>
       </RNCamera>
   )
 }

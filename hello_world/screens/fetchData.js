@@ -23,7 +23,7 @@ import { GoogleSignin, statusCodes } from '@react-native-community/google-signin
 
 import database from '@react-native-firebase/database';
 
-//import ItemComponent from '../components/ItemComponent';
+
 
 
 
