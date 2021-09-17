@@ -11,6 +11,8 @@ import { GoogleSigninButton } from '@react-native-community/google-signin';
     Alert,
 
 } from 'react-native';
+import  styles  from './styles';
+
 
 import { ActivityIndicator, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { Headline, Paragraph,TouchableRipple  } from 'react-native-paper';
