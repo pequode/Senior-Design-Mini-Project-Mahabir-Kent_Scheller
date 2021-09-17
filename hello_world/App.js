@@ -2,7 +2,8 @@
 import * as React from 'react';
 // import  useState  from 'react';
 import  Camera  from './screens/Camera';
-import  SignIn  from './screens/SignIn';
+import  SignIn  from './screens/SignIn';addData
+import  addData  from './screens/addData';
 // import { SignIn } from './screens/SignIn.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -82,7 +83,12 @@ const HomeScreen = ({ navigation }) => {
         title="Sign In"
         onPress={() => navigation.navigate('SignIn')}
       />
+      <Button
+        title="add data"
+        onPress={() => navigation.navigate('addData')}
+      />
     </View>
+    
   );
 };
 const MyStack = () => {
@@ -97,6 +103,7 @@ const MyStack = () => {
         <Stack.Screen name="Camera" component={Camera} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignOut" component={SignOut} />
+        <Stack.Screen name="addData" component={addData} />
       </Stack.Navigator>
     </NavigationContainer>
   );
