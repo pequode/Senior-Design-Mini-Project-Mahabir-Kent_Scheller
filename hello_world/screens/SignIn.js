@@ -40,6 +40,7 @@ const SignIn =({ navigation }) => {
     //         setAuthenticated(false);
     //     }
     //   });
+    GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8lu.apps.googleusercontent.com',});
     signIn = async () => {
         try {
           await GoogleSignin.hasPlayServices();

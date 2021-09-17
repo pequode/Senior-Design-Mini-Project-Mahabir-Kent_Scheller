@@ -41,15 +41,23 @@ GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8
 
 
 const SignOut =() => {
-  
- 
+  const user = auth().currentUser;
+  const [authenticated, setAutheticated] = React.useState(false);
+  // auth().onAuthStateChanged((user) => {
+  //   if(user) {
+  //     setAutheticated(true);
+  //     return (<Authenticated/>);
+  //   }
+  //   else {
+  //     setAuthenticated(false);
+  //   }
 
-    // if (!authenticated) {
-    //   return (navigation.navigate('SignIn'));
-    // }
+  //   // if (!authenticated) {
+  //   //   return (navigation.navigate('SignIn'));
+  //   // }
     
-    return <Authentication onGoogleButtonPress={onGoogleButtonPress} />;
-  })
+  //   return <Authentication onGoogleButtonPress={onGoogleButtonPress} />;
+  // })
   return (
     <View >
       
