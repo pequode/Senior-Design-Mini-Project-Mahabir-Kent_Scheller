@@ -40,7 +40,14 @@ const SignIn =({ navigation }) => {
     //         setAuthenticated(false);
     //     }
     //   });
-    GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8lu.apps.googleusercontent.com',});
+    GoogleSignin.configure(
+      {
+        //webClientId is required if you need offline access
+        offlineAccess: true,
+        webClientId:'515008457162-lt45kj9dmnv4na17e3m1drkvu1tggllv.apps.googleusercontent.com',
+        androidClientId: '515008457162-d54vqe3j8omukp2f0u60h3g5039onhc7.apps.googleusercontent.com',
+        scopes: ['profile', 'email']
+      });
     signIn = async () => {
         try {
             console.log("fcuk12")
@@ -51,15 +58,15 @@ const SignIn =({ navigation }) => {
           setAutheticated({ userInfo });
           console.log("dones")
         } catch (error) {
-            console.log("fcuk")
+            console.log("an error occured")
           if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-            console.log("fcuk1")
+            console.log("signin cancelled")
             // user cancelled the login flow
           } else if (error.code === statusCodes.IN_PROGRESS) {
-            console.log("fcuk2")
+            console.log("in progress already")
             // operation (e.g. sign in) is in progress already
           } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-            console.log("fcuk3")
+            console.log("play service not available")
             // play services not available or outdated
           } else {
             // some other error happened
