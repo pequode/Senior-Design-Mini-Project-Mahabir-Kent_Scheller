@@ -27,8 +27,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: ls the current Dir
+        env: # Or as an environment variable
+          API_KEY_USDA: ${{ secrets.API_KEY_USDA }}
         run: | 
-          echo "Hello, world!"
+          echo $API_KEY_USDA
           ls -a
           cd docs/test
           python3 ./sayHi.py
