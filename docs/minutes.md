@@ -56,3 +56,13 @@
 * * * George to look into serial numbers not scanning 
 * *  talked about priories for last sprint 
 * * outlined goals and highlighted with priority list 
+* 9/16-17/21 -- Thursday 10pm - Friday 9p,
+* * On Thursday Brian and George finished implementing google authentication
+* * Ran into a bug, needed to redo the sha-1 key
+* * George created Firebase storage to store data
+* * George had to recreate database to realtime database to fix bugs
+* * On Friday Brian and George finished implementing addData function to push data
+* * George fixed bugs on addData function
+* * George created function to pull data
+* * George cleaned up the UI
+* * Brian tested the app on his phone and made videos
