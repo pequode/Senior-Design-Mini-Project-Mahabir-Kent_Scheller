@@ -29,7 +29,7 @@ For this project we used a more expansive set of Github's features than either o
 ### Github Secrets
 Our implementation of github secrets was infiorior to say the least. While we did create a github secret for our FDA API key we did not integrate it onto local development enviormnets. The only purpose our github secrets variable serves is to allow an automated check to make sure that the api key was not included. Addionally we had a few commits where our method of odviscating the api key failed and it was included. This is all not even to mention all of the firebase authentication material that is currently viewable on our app. 
 
-##Beginings of CI/CD and automation
+## Beginings of CI/CD and automation
 This project was also a good intro into the beginings of automation and the general dev-ops mindset, the agile sprints combined with the small automated testing suite helped make development easier, even if for just a short period at the end of the project.
 
  
