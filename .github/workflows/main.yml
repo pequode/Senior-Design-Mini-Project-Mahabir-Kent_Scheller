@@ -34,6 +34,11 @@ jobs:
           ls -a
           cd docs/test
           python3 ./sayHi.py
+          echo $found_key
+          if $found_Key ; then
+            echo "Game over!"
+            exit 1
+          fi
           
 
       # Runs a set of commands using the runners shell
