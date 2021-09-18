@@ -7,7 +7,7 @@ print(os.environ['API_KEY_USDA'])
 print("if above is *** api aquired!!!!")
 check = os.environ['API_KEY_USDA'];
 print(len(check))
-searchString = check
+searchString = "cal"#check
 foundAPI=False
 for fname in directory: # change directory as needed
     if searchString in fname:
