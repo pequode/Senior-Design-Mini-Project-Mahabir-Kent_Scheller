@@ -7,8 +7,8 @@ print(os.environ['API_KEY_USDA'])
 print("if above is *** api aquired!!!!")
 check = os.environ['API_KEY_USDA'];
 print(len(check))
-searchString = "Get"#check
-foundAPI=False
+searchString = check
+foundAPI=True
 for fname in directory: # change directory as needed
     if searchString in fname:
         f = open(fname,'r')
@@ -19,6 +19,4 @@ for fname in directory: # change directory as needed
         print('string not found in ' + str(fname))
 if(foundAPI):
     print("Warring api key present")
-    os.environ["FOUND"] = "true"
-else:
-   os.environ["FOUND"] = "false" 
+    os.system("exit 1")
