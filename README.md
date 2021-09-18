@@ -11,10 +11,10 @@ The app functions as a barcode calorie counter. The user logins to verify identy
 For both of the contributers in this projet javascript was fairly unfimilar. This proved to be a learning curve for much of the apps development because js allows for things to be defined in so many different ways.
 
 ## React Native:
-Learning the React Native Framework, even a little, was also a large challenge. The combination of a new language and setting up a common enviornment proved to be mor of an issue that was intially anticipated. 
+Learning the React Native Framework, even a little, was also a large challenge. The combination of a new language and setting up a common enviornment proved to be more of an issue that was intially anticipated. 
 
 ## Agile:
-For much of this project we experimented with agile flow on trello (https://trello.com/b/qGLcf2kC/snr-des-mini-proj) and breifly using github issue. However, durring crunch time our development style regressed to waterfall. 
+For much of this project we experimented with agile flow on trello (https://trello.com/b/qGLcf2kC/snr-des-mini-proj) and breifly using github issue. However, during crunch time our development style regressed to waterfall. 
 
 ## API's:
 A large part of this project had to do with understanding APIs. To accomplish our project we integrated the following API's with each other:
