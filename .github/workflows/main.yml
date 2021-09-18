@@ -35,7 +35,7 @@ jobs:
           cd docs/test
           python3 ./sayHi.py
           echo $found_key
-          if $found_Key ; then
+          if ["$FOUND" = true] ; then
             echo "Game over!"
             exit 1
           fi
