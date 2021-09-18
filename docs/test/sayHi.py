@@ -16,7 +16,7 @@ for fname in directory: # change directory as needed
         foundAPI=True
         break
     else:
-        print('string not found')
+        print('string not found in ' + str(fname))
 if(foundAPI):
     print("Warring api key present")
     os.environ["FOUND"] = "true"

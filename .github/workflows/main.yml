@@ -34,8 +34,8 @@ jobs:
           ls -a
           cd docs/test
           python3 ./sayHi.py
-          echo $found_key
-          if ["$FOUND" = true] ; then
+          echo $FOUND
+          if [ "$FOUND" = true ] ; then
             echo "Game over!"
             exit 1
           fi
