@@ -89,7 +89,7 @@ const HomeScreen = ({ navigation }) => {
         </Pressable>
         
         <Pressable style={styles.button}
-          onPress={() => navigation.navigate('fetchData')}
+          onPress={() => navigation.navigate('Get Cals')}
         >
             <Text style={styles.normText}>
             Get Total Cals 
@@ -112,12 +112,12 @@ const MyStack = () => {
         />
         <Stack.Screen name="Camera" component={Camera} style={styles.titlescreen}/>
         <Stack.Screen name="SignOut" component={SignOut} style={styles.titlescreen}/>
-        <Stack.Screen name="addData" component={addData} 
+        <Stack.Screen name="Add Data" component={addData} 
            initialParams={{ param1: "88",
            param2: 'anything yo',}}
            style={styles.titlescreen}
         />
-        <Stack.Screen name="fetchData" component={fetchData} style={styles.titlescreen}/>
+        <Stack.Screen name="Get Cals" component={fetchData} style={styles.titlescreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

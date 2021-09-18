@@ -105,9 +105,9 @@ const Camera = ( ) => {
       return 0;
     }
   }
-  function add_to_data_Base(){
+  const  handleSubmit = () =>{
     if(calories != -1){
-      navigation.navigate('addData', {
+      navigation.navigate('Add Data', {
         data: otherData,
         cals: calories,
         serv: servings,
@@ -135,9 +135,16 @@ const Camera = ( ) => {
           
           <Button title="test successful scan" onPress={callAPI} />
           {/* delete above line and use isBarcodeRead for bellow statement */}
-          {calories ? <Button title="add to totalCals" onPress={add_to_data_Base} /> :<Text></Text> } 
-          <Text style={styles.title}>Total Calories: {how_many_kcal()}</Text>
-          <Text style={styles.normText}>Servings: {servings}</Text>
+          {/* <Button title="add to totalCals" onPress={add_to_data_Base} />  */}
+          <Pressable style={styles.button}
+            onPress={handleSubmit}
+          >
+            <Text style={styles.normText}>
+              Add to Dayly Cals
+            </Text>
+        </Pressable>
+          <Text style={styles.title}>Total Calories: {JSON.stringify(how_many_kcal())}</Text>
+          <Text style={styles.normText}>Servings: {JSON.stringify(servings)}</Text>
           <TextInput
             style={styles.input}
             onChangeText={setServings}

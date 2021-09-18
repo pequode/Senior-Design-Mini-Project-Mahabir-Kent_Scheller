@@ -48,7 +48,7 @@ const fetchData =({ navigation }) => {
         }
     }, [itemsArray,testName]);       
 
-    function try_to_format(params) {
+    function handleSubmit(){
         try {
             var stuff = itemsArray
             console.log("length of stuff");
@@ -68,7 +68,8 @@ const fetchData =({ navigation }) => {
     
     <View>
        <ImageBackground source={require( '../backgrounds/background3.png')} style={{width: '100%', height: '100%',resizeMode: 'cover'}}>
-       <Text style={styles.normText} >{try_to_format("kat")}</Text>
+       <Text style={styles.big_Title} >Total Cals:</Text> 
+       <Text style={styles.normText}>{handleSubmit()}</Text>
        
        </ImageBackground>
     </View>

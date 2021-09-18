@@ -14,15 +14,21 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       marginVertical: 8,
       color: 'white',
+      fontSize: 30,
+      fontWeight: "bold"
     },
     big_Title:{
       textAlign: 'center',
       marginVertical: 8,
-      color: 'white',
+      color: 'grey',
+      fontSize: 50,
+      fontWeight: "bold"
     },
     normText:{
       textAlign: 'center',
-      color: 'white',
+      color: 'grey',
+      fontSize: 20,
+      fontWeight: "bold"
     },
     fixToText: {
       flexDirection: 'row',
@@ -34,8 +40,9 @@ const styles = StyleSheet.create({
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
     input:{
+        alignItems: 'center',
         height: 40,
-        margin: 12,
+        marginVertical: 250,
         borderWidth: 1,
         padding: 10,
         backgroundColor: '#3cb371',
@@ -46,12 +53,13 @@ const styles = StyleSheet.create({
     },
     button: {
       alignItems: 'center',
+      padding: 20,
+      margin: 30,
       justifyContent: 'center',
-      paddingVertical: 12,
-      paddingHorizontal: "40%",
-      borderRadius: 4,
-      elevation: 3,
+      borderRadius: 8,
+      elevation: 5,
       backgroundColor: '#3cb371',
+      
   
     },
   });

@@ -30,7 +30,7 @@ import { GoogleSignin, statusCodes } from '@react-native-community/google-signin
 const SignIn =({ navigation }) => {
     // const user = auth().currentUser;
      const [authenticated, setAutheticated] = useState(false);
-    // GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8lu.apps.googleusercontent.com',});
+  
     // async function onGoogleButtonPress() {
     //     const { idToken } = await GoogleSignin.signIn();
     //     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
