@@ -15,7 +15,7 @@ import { GoogleSigninButton } from '@react-native-community/google-signin';
   ImageBackground,
   Pressable,
 } from 'react-native';
-
+// sign in page 
 import  styles  from './styles';
 
 
@@ -30,7 +30,7 @@ import { GoogleSignin, statusCodes } from '@react-native-community/google-signin
 const SignIn =({ navigation }) => {
     // const user = auth().currentUser;
      const [authenticated, setAutheticated] = useState(false);
-  
+
     // async function onGoogleButtonPress() {
     //     const { idToken } = await GoogleSignin.signIn();
     //     const googleCredential = auth.GoogleAuthProvider.credential(idToken);

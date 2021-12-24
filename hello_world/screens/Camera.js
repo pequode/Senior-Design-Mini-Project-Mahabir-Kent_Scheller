@@ -1,4 +1,4 @@
-
+// camera screen app
  import React, { Component } from 'react';
  import { useState, useRef, useEffect} from 'react';
  import { RNCamera } from 'react-native-camera';
@@ -26,13 +26,13 @@ import { useNavigation } from '@react-navigation/native';
 const defaultBarcodeTypes = [];
 
 var api_1 = "https://api.nal.usda.gov/fdc/v1/foods/search?api_key="
-const api_key_json = require('./api_key.json');
+const api_key_json = require('./api_key.json');// basic method to do checks on credentials
 var api_key = api_key_json.api_key;
 var api_3 = "&query="
 var bar = "689544083016"
 
 var defaultServerSize =1;
-const Camera = ( ) => {
+const Camera = ( ) => {// create camera screen 
   const [isBarcodeRead, setIsBarcodeRead] = useState(false);
   const [barcodeType, setBarcodeType] = useState('');
   const [barcodeValue, setBarcodeValue] = useState('');
@@ -42,7 +42,7 @@ const Camera = ( ) => {
   let cameraRef = useRef(null)
   const navigation = useNavigation();
 
-  
+
   async function callAPI(val) {
     try {
       const response = await fetch(api_1+api_key+api_3+bar);
@@ -71,8 +71,8 @@ const Camera = ( ) => {
   useEffect(() => {
      if (isBarcodeRead) {
          Alert.alert(
-            barcodeType, 
-            barcodeValue, 
+            barcodeType,
+            barcodeValue,
             [
                {
                    text: 'API call',
@@ -113,7 +113,7 @@ const Camera = ( ) => {
         serv: servings,
       })
       setcalories(-1);
-      return 1; 
+      return 1;
     }
     else {
       return -1;
@@ -121,18 +121,18 @@ const Camera = ( ) => {
   };
 
   return (
-  
-      <RNCamera 
+
+      <RNCamera
         ref={cameraRef}
-        onBarCodeRead={onBarcodeRead} 
+        onBarCodeRead={onBarcodeRead}
         style={{
             flex: 1,
             width: '100%',
           }}
         barcodeTypes={isBarcodeRead ? [] : defaultBarcodeTypes}>
           <BarcodeMask />
-         
-          
+
+
           <Button title="test successful scan" onPress={callAPI} />
           {/* delete above line and use isBarcodeRead for bellow statement */}
           {/* <Button title="add to totalCals" onPress={add_to_data_Base} />  */}

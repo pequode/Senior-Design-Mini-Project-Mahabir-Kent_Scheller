@@ -24,13 +24,13 @@ import { GoogleSignin, statusCodes } from '@react-native-community/google-signin
 import database from '@react-native-firebase/database';
 
 
-
+// used to add data to firebase database
 const addData =({ route, navigation }) => {
     const [name, onChangeText] = React.useState('');
     const { data, cals, serv } = route.params;
     const [dataAdded, onSuccessfulSub] = React.useState(false);
     const  handleSubmit = () => {
-        
+
         database().ref('/fodoData').push({
             cal: cals,
             servings: serv,
@@ -52,7 +52,7 @@ const addData =({ route, navigation }) => {
       </ImageBackground>
       </View>
     );
-    
+
   };
 
 export default addData;

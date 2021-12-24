@@ -40,11 +40,11 @@ GoogleSignin.configure({webClientId:'515008457162-mjfsucblgofg46bub2nlirhpraamq8
 //   return auth().signInWithCredential(googleCredential);
 // }
 // const authenticated = () =>{
-  
+
 // };
 
 
-
+// creates signout page
 const SignOut =() => {
   const user = auth().currentUser;
   const [authenticated, setAutheticated] = React.useState(false);
@@ -65,7 +65,7 @@ const SignOut =() => {
   // })
   return (
     <View >
-      
+
       <Text >You're Logged In</Text>
       <Image source={{ uri: user?.photoURL }} style={styles.image} />
       <Text >{user?.displayName}</Text>
@@ -76,6 +76,7 @@ const SignOut =() => {
     </View>)
 };
 //This is the home screen we need to create a login screen as well
+// main nav page
 const HomeScreen = ({ navigation }) => {
   return (
     <View>
@@ -87,19 +88,20 @@ const HomeScreen = ({ navigation }) => {
               Scan Barcode
             </Text>
         </Pressable>
-        
+
         <Pressable style={styles.button}
           onPress={() => navigation.navigate('Get Cals')}
         >
             <Text style={styles.normText}>
-            Get Total Cals 
+            Get Total Cals
             </Text>
         </Pressable>
       </ImageBackground>
     </View>
-    
+
   );
 };
+// navigation stack
 const MyStack = () => {
   return (
     <NavigationContainer>
@@ -112,7 +114,7 @@ const MyStack = () => {
         />
         <Stack.Screen name="Camera" component={Camera} style={styles.titlescreen}/>
         <Stack.Screen name="SignOut" component={SignOut} style={styles.titlescreen}/>
-        <Stack.Screen name="Add Data" component={addData} 
+        <Stack.Screen name="Add Data" component={addData}
            initialParams={{ param1: "88",
            param2: 'anything yo',}}
            style={styles.titlescreen}

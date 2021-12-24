@@ -2,13 +2,13 @@
  import React, { Component } from 'react';
  import {   StyleSheet } from 'react-native';
 
- 
+ // just holds the apps stylesheet 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
       backgroundColor: '#d3d3d3',
-  
+
     },
     title: {
       textAlign: 'center',
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         backgroundColor: '#3cb371',
-      
+
     },
     titlescreen:{
       textAlign: 'center',
@@ -59,11 +59,11 @@ const styles = StyleSheet.create({
       borderRadius: 8,
       elevation: 5,
       backgroundColor: '#3cb371',
-      
-  
+
+
     },
   });
-  
-  
-  
+
+
+
    export default styles;
